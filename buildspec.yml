@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "installing all the requirements"
+      - pip3 install -r requirements.txt
+  build:
+    commands:
+      - echo "Building the application"
+      - zip -r grocery.zip *
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - grocery.zip
+  discard-paths: yes
